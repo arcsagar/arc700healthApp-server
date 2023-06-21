@@ -12,12 +12,8 @@ app.use(
 );
 
 
-// const newEvents = [...allEvents, {  id, title, start, end, allDay, userId }];
 
-// await writeFileSync('./jsonData/events.json', JSON.stringify(newEvents));
-// res.send({ status: 200, msg: "event added" });
-
-app.get('/allhealth', async (req,res)=> {
+app.get("/allhealth", async (req, res) => {
   const data = await readFileSync("./jsonData/healthData.json");
   const allHealthData = JSON.parse(data);
   res.send({
@@ -25,7 +21,20 @@ app.get('/allhealth', async (req,res)=> {
     msg: "All health Data",
     allHealthData,
   });
-})
+});
+
+app.post("/addHealthData", async (req, res) => {
+  
+  const reqHealthData = req.body;
+  console.log("reqHealthData", reqHealthData);
+  const data = await readFileSync("./jsonData/healthData.json");
+  const allHealthData = JSON.parse(data);
+  const newHealthData = [...allHealthData,reqHealthData ];
+
+await writeFileSync('./jsonData/healthData.json', JSON.stringify(newHealthData));
+res.send({ status: 200, msg: "new health Data Added" });
+
+});
 
 app.listen(port, () => {
   console.log("Server started on port " + port);
