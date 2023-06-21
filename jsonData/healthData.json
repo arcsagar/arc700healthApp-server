@@ -1,0 +1,24 @@
+[
+  {
+    "id": 0,
+    "HR": 120,
+    "SBP": 132,
+    "DBP": 123,
+    "sugar": 123,
+    "cal": 123,
+    "hemoglobin": 123,
+    "spo2": 123,
+    "name": "arc"
+  },
+  {
+    "id": 1,
+    "HR": 1,
+    "SBP": 2,
+    "DBP": 3,
+    "sugar": 4,
+    "cal": 5,
+    "hemoglobin": 6,
+    "spo2": 123,
+    "name": "arc"
+  }
+]
